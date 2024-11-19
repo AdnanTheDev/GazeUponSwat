@@ -1,0 +1,989 @@
+@font-face {
+  font-family: neon;
+  src: url(/Fonts/Neoneon.otf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'ubuntu', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+body {
+  background-color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: cyan;
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: rgb(2, 148, 148);
+}
+
+.scroll-watcher {
+  height: 10px;
+  width: 100%;
+  border-radius: 100px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: cyan;
+  scale: 0 1;
+  transform-origin: left;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll();
+}
+
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.upper-nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: lightseagreen;
+  box-shadow: 10px 10px 20px #777;
+}
+
+.name {
+  font-size: 30px;
+  font-weight: 300;
+  /* font-family: neon; */
+  text-decoration: none;
+  color: white;
+}
+
+.left-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  /* border-bottom: 2px solid #dadada; */
+  padding: 20px 0px;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  gap: 2rem;
+  top: -1000px;
+  left: 0;
+  right: 0;
+  width: 95%;
+  z-index: 1;
+  background-color: lightseagreen;
+  padding: 2rem 0;
+  box-shadow: 10px 10px 40px #333;
+  border-radius: 10px;
+  transition: 1s;
+  margin-inline: auto;
+}
+
+.links {
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.2s;
+  padding: 10px 5px;
+  color: white;
+}
+
+.links:hover {
+  transform: translateY(-5px);
+  color: cyan;
+  scale: 1.3;
+}
+
+.lower-links {
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.2s;
+  padding: 10px 5px;
+  color: black;
+}
+
+.lower-links:hover {
+  transform: translateY(-5px);
+  color: cyan;
+  scale: 1.3;
+}
+
+#menu {
+  font-size: 25px;
+  color: white;
+}
+
+#night {
+  font-size: 25px;
+  transition: 0.8s;
+  cursor: pointer;
+  color: white;
+}
+
+#night:hover {
+  rotate: 360deg;
+}
+
+#day {
+  display: none;
+  font-size: 25px;
+  transition: 0.8s;
+  cursor: pointer;
+  color: white;
+}
+
+#day:hover {
+  rotate: 360deg;
+}
+
+.lower-nav {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-align: center;
+  gap: 2vw;
+}
+
+#page1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 60vh;
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  background-image: url(./Images/Swat-River.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 20%;
+  box-shadow: 15px 15px 40px black;
+}
+
+#page1::before {
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  z-index: -1;
+  backdrop-filter: brightness(0.3);
+  opacity: 0.7;
+}
+
+.heading {
+  line-height: 70px;
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 700;
+  /* -webkit-text-stroke: 2px lightseagreen; */
+  text-align: center;
+  width: 100%;
+  text-shadow: 10px 10px 50px lightseagreen;
+}
+
+.sub-heading {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+  width: 90vw;
+  margin-top: 20px;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#search-bar {
+  width: 60vw;
+  color: white;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.418);
+  border: 2px solid lightseagreen;
+}
+
+.search-btn {
+  background-color: lightseagreen;
+  font-size: 25px;
+  padding: 12px 20px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.search-btn:active {
+  background-color: rgb(0, 87, 82);
+}
+
+#page2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+}
+
+.page2-heading {
+  color: transparent;
+  background-image: url(./Images/Swat-River.jpg);
+  background-clip: text;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 100px;
+  background-position: 60% 15%;
+}
+
+.page2-para {
+  color: black;
+  margin-inline: 10px;
+  text-align: justify;
+  font-size: 20px;
+}
+
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.right-side img {
+  height: 450px;
+  width: 310px;
+  border-radius: 10px;
+}
+
+#page3 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+.page3-heading {
+  color: transparent;
+  background-clip: text;
+  background-image: url(./Images/Swat-River.jpg);
+  background-position: 50% 60%;
+  font-size: 42px;
+  text-align: center;
+}
+
+.places-container {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 3rem;
+}
+
+.place-img {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.place {
+  background-color: lightseagreen;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.place-name {
+  font-size: 25px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+
+.see-all {
+  background-color: lightseagreen;
+  border: none;
+  font-size: 25px;
+  padding: 10px 28px;
+  border-radius: 100px;
+  margin-top: 20px;
+}
+
+.hidden-places {
+  display: none;
+  grid-template-columns: auto;
+  gap: 3rem;
+  margin-top: 20px;
+}
+
+#page4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightseagreen;
+  margin-top: 100px;
+  width: 300px;
+  margin-inline: auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px #999;
+}
+
+.tour-description-img {
+  height: 250px;
+  width: 300px;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.tour-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tour-description-heading {
+  font-size: 30px;
+  text-align: center;
+}
+
+.tour-description-para {
+  text-align: justify;
+  margin-top: 20px;
+  width: 100%;
+  padding-inline: 10px;
+}
+
+.tour-description-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+
+.btn-container {
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+#sec-img {
+  display: none;
+}
+
+#page5 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.page5-heading {
+  background-image: url(./Images/Swat-River.jpg);
+  font-size: 42px;
+  background-clip: text;
+  color: transparent;
+  background-position: 50% 60%;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.team-member-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightseagreen;
+  width: 300px;
+  padding: 20px 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px #999;
+}
+
+.team-member-img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.team-member-name {
+  font-size: 26px;
+}
+
+.team-member-description {
+  font-size: 16px;
+  text-align: justify;
+  margin-top: 10px;
+}
+
+.know-more {
+  border: 2px solid white;
+  margin-top: 10px;
+  text-align: left;
+  padding: 6px 15px;
+  border-radius: 100px;
+}
+
+.arrow {
+  font-size: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 100vw;
+  background-color: lightseagreen;
+}
+
+.footer-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100vw;
+}
+
+.footer-img {
+  height: 100px;
+  border-radius: 50%;
+}
+
+.footer-h2 {
+  color: white;
+  font-size: 30px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.social-links {
+  transition: 0.3s;
+}
+
+.social-links:hover {
+  scale: 1.2;
+}
+
+@media (min-width: 425px) {
+  #page2 img {
+    height: 450px;
+    width: 330px;
+    margin-top: 20px;
+  }
+
+  .page2-para {
+    width: 400px;
+  }
+}
+
+@media (min-width: 611px) {
+  .lakes-container {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .upper-nav {
+    padding: 15px 0;
+    /* border-bottom: 2px solid black; */
+    padding: auto;
+  }
+
+  #search-bar {
+    font-size: 18px;
+  }
+
+  .search-btn {
+    font-size: 25px;
+    padding: 8px 15px;
+  }
+
+  .lower-nav {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* margin-top: 0px; */
+    gap: 0px;
+  }
+
+  .lower-links {
+    font-size: 18px;
+  }
+
+  .name {
+    font-size: 30px;
+    transition: 0.5s;
+    color: white;
+  }
+
+  .name:hover {
+    letter-spacing: 10px;
+  }
+
+  #day {
+    color: white;
+  }
+
+  #night {
+    color: white;
+  }
+
+  .right-nav {
+    position: initial;
+    flex-direction: row;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 10px 20px;
+    gap: 2rem;
+  }
+
+  .left-nav {
+    border-bottom: none;
+    padding: 0;
+    width: 80%;
+  }
+
+  .links {
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+
+  #day {
+    font-size: 25px;
+  }
+
+  #night {
+    font-size: 25px;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  .heading {
+    display: flex;
+    gap: 1rem;
+    margin-top: 100px;
+  }
+
+  h1 {
+    font-size: 55px;
+    margin-top: 20px;
+  }
+
+  .sub-heading {
+    width: 740px;
+    font-weight: 400;
+    margin-top: 50px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  #page1 {
+    height: 60vh;
+    margin-top: 20px;
+  }
+
+  .page2-para {
+    width: 500px;
+    font-size: 20px;
+  }
+
+  #page2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .right-side img {
+    margin-top: 50px;
+    transition: 0.3s;
+    border-radius: 20px;
+    display: block;
+  }
+
+  .right-side img:hover {
+    scale: 1.1;
+  }
+
+  .page3-heading {
+    font-size: 60px;
+  }
+
+  .places-container {
+    grid-template-columns: auto auto;
+  }
+
+  .hidden-places {
+    grid-template-columns: auto auto;
+  }
+
+  .team-container {
+    flex-direction: row;
+    margin-top: 10px;
+  }
+
+  .page4-heading {
+    font-size: 45px;
+  }
+
+  #page4 {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: 99%;
+  }
+
+  .tour-description {
+    margin: 0 30px;
+  }
+
+  .tour-description-para {
+    text-align: left;
+    width: 400px;
+    margin: none;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .tour-description-heading {
+    text-align: left;
+    min-width: 100%;
+    margin-left: 15px;
+    font-size: 35px;
+  }
+
+  .tour-description-btn {
+    transition-duration: 0.2s;
+  }
+
+  .tour-description-btn:hover {
+    font-size: 23px;
+  }
+
+  .btn-container {
+    text-align: center;
+    margin: none;
+  }
+
+  .tour-description-img {
+    width: 20vw;
+    object-fit: cover;
+  }
+
+  #sec-img {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  #page1 {
+    height: 80vh;
+    margin-top: 20px;
+  }
+
+  .upper-nav {
+    padding: 0;
+  }
+
+  .name {
+    font-weight: 200;
+    margin-top: 5px;
+    color: white;
+    font-size: 35px;
+  }
+
+  #page2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-nav {
+    transition: none;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+
+  .lower-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .lower-links {
+    font-size: 15px;
+  }
+
+  .place-img {
+    height: 450px;
+  }
+
+  .team-member-card {
+    width: 450px;
+  }
+
+  .tour-description-img {
+    width: 280px;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1166px) {
+  #page1 {
+    height: 70vh;
+    margin-top: 20px;
+  }
+
+  .upper-nav {
+    padding: 10px;
+  }
+
+  #search-bar {
+    font-size: 18px;
+  }
+
+  .search-btn {
+    font-size: 25px;
+    padding: 8px 15px;
+  }
+
+  .sub-heading {
+    font-size: 20px;
+    width: 1000px;
+  }
+
+  .links {
+    font-size: 20px;
+    padding: 0;
+  }
+
+  .name {
+    font-size: 30px;
+  }
+
+  .lower-links {
+    font-size: 15px;
+    padding: 0;
+  }
+
+  .lower-nav {
+    display: flex;
+    gap: 2rem;
+    margin-top: 20px;
+  }
+
+  #page1 {
+    padding-bottom: 0px;
+    min-height: 50vh;
+  }
+
+  #page2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+
+  .left-right-container {
+    display: flex;
+    gap: 10vw;
+  }
+
+  .page2-para {
+    font-size: 20px;
+  }
+
+  #page2 img {
+    height: 750px;
+    width: 500px;
+  }
+
+  h1 {
+    font-size: 85px;
+  }
+
+  .places-container {
+    grid-template-columns: auto auto auto;
+    margin-top: 50px;
+  }
+
+  .hidden-places {
+    grid-template-columns: auto auto auto;
+    margin-top: 50px;
+  }
+
+  .place {
+    transition: 0.3s;
+  }
+
+  .place:hover {
+    box-shadow: 10px 10px 30px lightseagreen;
+    scale: 1.1;
+    rotate: -5deg;
+  }
+
+  .page2-heading {
+    font-size: 55px;
+  }
+
+  .page2-para {
+    font-size: 17px;
+    line-height: 30px;
+  }
+
+  .team-member-card {
+    width: 550px;
+    height: 500px;
+    padding: 20px 40px;
+  }
+
+  .team-member-img {
+    height: 250px;
+    width: 250px;
+  }
+
+  .team-member-name {
+    font-size: 35px;
+  }
+
+  .know-more {
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+  }
+
+  .know-more:hover {
+    scale: 1.1;
+  }
+
+  .page4-heading {
+    font-size: 55px;
+  }
+
+  .tour-description-img {
+    width: 500px;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 2000px) {
+  .links {
+    font-size: 30px;
+  }
+
+  .lower-nav {
+    gap: 3rem;
+  }
+
+  .lower-links {
+    font-size: 30px;
+  }
+
+  .name {
+    font-size: 55px;
+  }
+
+  #day {
+    font-size: 40px;
+  }
+
+  #night {
+    font-size: 40px;
+  }
+
+  h1 {
+    font-size: 120px;
+  }
+
+  .sub-heading {
+    font-size: 30px;
+    width: 1000px;
+  }
+
+  #search-bar {
+    font-size: 40px;
+    padding: 20px 40px;
+  }
+
+  .search-btn {
+    font-size: 56.5px;
+  }
+
+  #page2 {
+    justify-content: center;
+    gap: 6rem;
+  }
+
+  .page2-heading {
+    font-size: 120px;
+    background-position: -50% 10%;
+  }
+
+  .page2-para {
+    font-size: 30px;
+    width: 700px;
+  }
+
+  #page2 img {
+    float: right;
+    height: 600px;
+    width: 800px;
+  }
+}
